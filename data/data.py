@@ -27,6 +27,7 @@ class Data:
     def process_data(self, country):
         self.df = self.group_by_country(self.cases, country)
         self.df["delta_data"] = self.df["data"] - self.df["data"].shift(1)
+        self.today = self.df.index[-1]
 
     @staticmethod
     def group_by_country(df, country):

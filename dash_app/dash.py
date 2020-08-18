@@ -21,5 +21,4 @@ app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 app.layout = dbc.Container(fluid=True, children=[
     html.Br(),
     html.H1('Global Covid-19 daily cases')
-
 ])

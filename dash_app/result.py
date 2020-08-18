@@ -28,7 +28,7 @@ class Result:
         fig = px.scatter(self.df,
                          x=self.df.index,
                          y=self.df["data"],
-                         labels={'data': ''},
+                         labels={'data': '', 'index': 'Select date range'},
                          template="simple_white"
                          )
         # add slider
@@ -41,7 +41,7 @@ class Result:
         fig = px.bar(self.df,
                      x=self.df.index,
                      y=self.df["delta_data"],
-                     labels={'delta_data': ''},
+                     labels={'delta_data': '', 'index': 'Select date range'},
                      template="simple_white"
                      )
         # add slider
