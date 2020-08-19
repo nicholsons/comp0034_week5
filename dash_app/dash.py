@@ -3,16 +3,16 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 
-from dash_app.result import Result
+from dash_app.chart_creator import ChartCreator
 from data.data import Data
 
 # Import the data set
 data = Data()
 
 # Create the figures
-result = Result(data.df)
-fig_total = result.fig_total()
-fig_active = result.fig_active()
+charts = ChartCreator(data.df)
+fig_total = charts.fig_total()
+fig_active = charts.fig_active()
 
 # Create a Dash app (using bootstrap).
 app = dash.Dash(external_stylesheets=[dbc.themes.LUX])

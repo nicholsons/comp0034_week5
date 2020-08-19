@@ -1,4 +1,4 @@
-import os
+import pathlib
 
 import pandas as pd
 
@@ -7,20 +7,20 @@ class Data:
     """Class for retrieving and structuring the Covid global time series data of daily cases."""
 
     def __init__(self):
-        self.cases = []
-        self.country_list = []
-        self.df = []
-        self.today = ''
+        self.cases = []  # Populated when .get_data() is called
+        self.country_list = []  # Populated when .get_data() is called
+        self.df = []  # Populated when .process_data(country) is called
+        self.today = '' # Populated when .process_data(country) is called
         self.get_data()
         self.process_data('World')
 
     def get_data(self):
-        # Replace the local file with the URL in DATA_LOC to get the latest cases
-        # DATA_LOC = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data
-        # /csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
-        DATA_DIR = os.path.join(os.getcwd(), 'data/CSSE_data')
-        DATA_LOC = os.path.join(DATA_DIR, 'time_series_covid19_confirmed_global.csv')
-        self.cases = pd.read_csv(DATA_LOC, sep=",")
+        DATA_PATH = pathlib.Path(__file__).parent.joinpath("CSSE_data")  # /data/CSSE_data
+        self.cases = pd.read_csv(DATA_PATH.joinpath("time_series_covid19_confirmed_global.csv"))
+        url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data" \
+              "/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+        # Uncomment the line below to get the latest data rather than the local csv file
+        # self.cases = pd.read_csv(url)
         self.cases = self.cases.drop(['Province/State', 'Lat', 'Long'], axis=1)
         self.country_list = ["World"] + self.cases["Country/Region"].unique().tolist()
 

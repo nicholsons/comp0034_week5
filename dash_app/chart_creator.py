@@ -1,7 +1,7 @@
 import plotly.express as px
 
 
-class Result:
+class ChartCreator:
     """ Creates the figures and statistics to be used in the dashboard"""
 
     def __init__(self, df):
@@ -33,6 +33,9 @@ class Result:
                          )
         # add slider
         fig.update_xaxes(rangeslider_visible=True)
+
+        # You can also create more customised range sliders using a Plotly component in app.layout.  See
+        # https://www.youtube.com/watch?v=Zvz2LpziQAs
 
         return fig
 
