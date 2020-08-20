@@ -8,7 +8,7 @@ from selenium.webdriver.support.select import Select
 
 
 def test_dada001_h1textequals(dash_duo):
-    app = import_app("dash_app.dash")
+    app = import_app("single_page_app.app")
     dash_duo.start_server(app)
     dash_duo.wait_for_element("h1", timeout=4)
     h1_text = dash_duo.find_element("h1").text
@@ -16,7 +16,7 @@ def test_dada001_h1textequals(dash_duo):
 
 
 def test_dada002_countrydropdowncontainsworld(dash_duo):
-    app = import_app("dash_app.dash_end")
+    app = import_app("single_page_app.app")
     dash_duo.start_server(app)
     dash_duo.wait_for_element("h1", timeout=4)
     assert 'World' in dash_duo.find_element("#country").text, "'World' should appear in the country dropdown"
