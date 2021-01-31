@@ -1,15 +1,11 @@
 # Introduction to interactivity in Dash
 
-Watch the video: TO BE RECORDED
-
-This activity is also documented in the [GitHub repository](https://github.com/nicholsons/comp0034_week4.git) in `exercises/2_multi_page_dash_app.md`
-
 You will likely need to refer to the [Multi page apps and URL support](https://dash.plotly.com/urls) in the Dash documentation.
 
 ## Introduction to this activity
 In the last activity you learned how to use callbacks to add interactivity to your dash application.
 
-In the app layout you added the two charts using tabs, however the app itself was still a single page app.
+If you complete the final challenge then you may have added two charts using tabs, however the app itself was still a single page app.
 
 This activity will introduce you to creating a multi-page Dash app.
 
@@ -17,7 +13,7 @@ The code for this activity is withing the `multi_page_app` directory.
 
 ## File structure for a multi page app
 Plotly recommends either:
-1. Each app is contained in a separate file
+1. Each app is contained in a separate file (or directory)
 ```
 - app.py
 - index.py
@@ -52,13 +48,10 @@ The routing, i.e. which app to display when a given url is entered, is defined i
 `app.layout` provides a sort of template for pages in the app.
 
 ### app1.py
-This is the covid 19 dashboard app from the previous activity. The changes are:
+This is the recycling dashboard app from the previous activity. The changes are:
 - app is created in app.py and is added as an import and the previous code to create the app in app1.py has been deleted
-## Add a third app
-Create a new app called app3. You can create your own or copy one of the sample pages in the Dash documentation.
-Add a link to the index.py for app3.
 
-## Create a navigation bar
+## TASK: Create a navigation bar
 Refer to the [Dash bootstrap components documentation for nav bar](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/navbar/) for more options and alternatives.
 
 Using bootstrap styling the following code would create a navbar:
@@ -87,3 +80,11 @@ app.layout = html.Div([
 
 Anything that you add to app.layout will be visible on every page. The above places the navbar before the main page content i.e. at the top of the page.
 
+You should now have a multipage app.
+
+### Add a third app
+Create a new app called app3.
+
+You can create your own or copy one of the [sample apps in the Dash repository on GitHub](https://github.com/plotly/dash-sample-apps).
+
+Add a link to the `index.py` for app3.

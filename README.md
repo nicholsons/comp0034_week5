@@ -23,3 +23,8 @@ or use the online documentation from your IDE.
 4. Install the requirements from requirements.txt.
 
 There is no Flask app this week so you do not need to check the Flask configuration.
+
+## Completed example (use with caution)
+There is a completed example of the activities in the repo nicholons/comp0034_week5_complete. 
+This is not intended as an exemplar and is only one possible solution to the challenges. 
+It has 'TODO's and may have errors!
