@@ -19,11 +19,11 @@ def test_dada002_countrydropdowncontainsworld(dash_duo):
     app = import_app("single_page_app.app")
     dash_duo.start_server(app)
     dash_duo.wait_for_element("h1", timeout=4)
-    assert 'World' in dash_duo.find_element("#country").text, "'World' should appear in the country dropdown"
+    assert 'World' in dash_duo.find_element("#area").text, "'World' should appear in the area dropdown"
 
 
 '''
-Write your own test here to assert that when the country dropdown is changed to Andorra that the card title for the 
+Write your own test here to assert that when the area dropdown is changed to Andorra that the card title for the 
 stats panel is also changed to Andorra.
 
 You will need to use the select_dcc_dropdown function to select an option in the dropdown which has the following 

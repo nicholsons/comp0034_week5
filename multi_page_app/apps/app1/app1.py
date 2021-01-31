@@ -28,7 +28,7 @@ layout = dbc.Container(fluid=True, children=[
         dbc.Col(md=3, children=[
             dbc.FormGroup([
                 html.H4("Select Country"),
-                dcc.Dropdown(id="country", options=[{"label": x, "value": x} for x in data.country_list], value="World")
+                dcc.Dropdown(id="area", options=[{"label": x, "value": x} for x in data.country_list], value="World")
             ]),
             html.Br(),
             html.Div(id="output-panel")
@@ -44,7 +44,7 @@ layout = dbc.Container(fluid=True, children=[
 ])
 
 
-@app.callback(Output("output-panel", "children"), [Input("country", "value")])
+@app.callback(Output("output-panel", "children"), [Input("area", "value")])
 def render_output_panel(country):
     data.process_data(country)
     charts = ChartCreator(data.df)
@@ -68,14 +68,14 @@ def render_output_panel(country):
     return panel
 
 
-@app.callback(Output("fig-total", "figure"), [Input("country", "value")])
+@app.callback(Output("fig-total", "figure"), [Input("area", "value")])
 def plot_total_cases(country):
     data.process_data(country)
     charts = ChartCreator(data.df)
     return charts.fig_total()
 
 
-@app.callback(Output("fig-active", "figure"), [Input("country", "value")])
+@app.callback(Output("fig-active", "figure"), [Input("area", "value")])
 def plot_active_cases(country):
     data.process_data(country)
     charts = ChartCreator(data.df)
