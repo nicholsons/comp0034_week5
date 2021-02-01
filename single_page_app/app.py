@@ -13,12 +13,11 @@ area = 'London'
 data.process_data_for_area(area)
 
 # Create the figures
-
 rc = RecyclingChart(data)
 fig1 = rc.create_chart(area)
 
 # Create a Dash app (using bootstrap).
-app = dash.Dash(external_stylesheets=[dbc.themes.LITERA])
+app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 
 # Create the app layout using Bootstrap fluid container
 app.layout = dbc.Container(fluid=True, children=[

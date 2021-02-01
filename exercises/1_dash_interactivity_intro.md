@@ -77,8 +77,8 @@ In this first activity you are going to modify the `single_page_app` which has t
 ```text
 /single_page_app/
     app.py  
-    recyclingcharts.py  # Creates the recycling chart and stats
-    recyclingdata.py  # Processes the recycling data
+    recyclingcharts.py  # Creates the recycling chart 
+    recyclingdata.py  # Processes the recycling data and statistics
     /assets/  # Directory for css, images etc
     /data/ # Directory containing the datasets
 ```
@@ -185,7 +185,7 @@ The code might look like this:
 ]),
 ```
 
-While you can use the country selector drop down, nothing happens when you select an area.
+While you can use the area selector drop down, nothing happens when you select an area.
 
 ### Add a callback so that the statistics panel is displayed when an area is selected
 
@@ -194,12 +194,13 @@ changes.
 
 The basic structure of the callback is:
 
-`@app.callback(
-Output(component_id='my-output', component_property='a_property'),
+```python
+@app.callback(Output(component_id='my-output', component_property='a_property'),
 [Input(component_id='my-input', component_property='another_property')]
 )
 def update_output_div(input_value):
-return 'Output: {}'.format(input_value)`
+    return 'Output: {}'.format(input_value)
+```
 
 - By writing this decorator, we're telling Dash to call this function for us whenever the value of the "input"
   component (the text box) changes in order to update the children of the "output" component on the page (the HTML div).
