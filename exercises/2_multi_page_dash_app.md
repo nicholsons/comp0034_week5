@@ -67,10 +67,7 @@ navbar = dbc.NavbarSimple(
     color="primary",
     dark=True,
 )
-```
 
-We don't want to duplicate the code on every page so add define the variable `navbar` and add the navbar code such as the above to the app.py.
-```python
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     navbar,
@@ -78,9 +75,11 @@ app.layout = html.Div([
 ])
 ```
 
+We don't want to duplicate the code on every page so add define the variable `navbar` and add the navbar code such as the above to the app.py.
+
 Anything that you add to app.layout will be visible on every page. The above places the navbar before the main page content i.e. at the top of the page.
 
-You should now have a multipage app.
+Stop and restart the app. You should now have a multipage app.
 
 ### Add a third app
 Create a new app called app3.

@@ -5,7 +5,7 @@
 In COMP0035 you learned how to use pytest to create unit tests, and Selenium webdriver to test a Flask application.
 
 This activity will introduce you to testing your Dash app using pytest and Selenium webdriver. You will test the single
-page Dash app in the `dash_app` directory.
+page Dash app in the `single_page_app` directory.
 
 It is based on the guidance on testing given in the [Dash documentation](https://dash.plotly.com/testing). You will need
 to refer to this documentation if you create Dash tests for your final application in coursework 2.
@@ -147,14 +147,10 @@ bootstrap style that we apply to this converts the text to uppercase, so the tes
 Instead a step has been added to compare the strings ignoring the case using the python function `.casefold()`. There
 are other techniques you could use such as `.upper()`, `.lower()`, or REGEX pattern matching.
 
-h1_text = dash_duo.find_element("h1").text assert h1_text.casefold()  == 'Global Covid-19 daily cases'.casefold()
+h1_text = dash_duo.find_element("h1").text assert h1_text.casefold()  == 'Waste and recycling'.casefold()
 
-# Run the tests
-
-Go to the terminal in Pycharm (or your venv if using a different IDE)
-Enter `pip install dash[testing]`
-
-# Now try and add at least one more test to `test_single_page_app.py`.
+# Add a test
+Now try and add at least one more test to `test_single_page_app.py`.
 
 Write your own test to assert that when the area dropdown is changed to Hackney that the card title for the stats panel
 is also changed to Hackney.
