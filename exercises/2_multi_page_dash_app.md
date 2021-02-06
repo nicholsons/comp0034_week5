@@ -1,4 +1,4 @@
-# Introduction to interactivity in Dash
+# Creating a multi page Dash app
 
 You will likely need to refer to the [Multi page apps and URL support](https://dash.plotly.com/urls) in the Dash documentation.
 
