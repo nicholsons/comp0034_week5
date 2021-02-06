@@ -88,7 +88,7 @@ def test_spa001_h1textequals(dash_duo):
 ## Create the dash app
 
 The boilerplate code suggests that you define and create the app in every test case. This would lead to a lot of
-repetition and become difficult to maintain. Instead we will create the app by using the `create_app` function which is
+repetition and become difficult to maintain. Instead we will create the app by using the `import_app` function which is
 in the application_runners module:
 
 ```python
