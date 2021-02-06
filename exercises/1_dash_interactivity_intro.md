@@ -149,9 +149,11 @@ html.H2('Recycling'),
 dcc.Graph(figure=fig1),
 ```
 
-Currently we see a chart comparing the average rate for all of England to the average rate for London. Let's add a selector
-to 'col1' allow us to choose a different area rather than London. This will be a form with a h4 heading and a dropdown.
-The code to do this will be something like this:
+Currently we see a chart comparing the average rate for all of England to the average rate for London. Let's add a
+selector to 'col1' allow us to choose a different area rather than London. This will be a form with a h4 heading and a
+dropdown. You need to understand how an HTML select works so
+read [an online HTML reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) if you are not
+familiar with this. The code to do this will be something like this:
 
 ```python
 # dash-bootstrap-components (dbc) provides the form group styling
@@ -196,8 +198,8 @@ The basic structure of the callback is:
 
 ```python
 @app.callback(Output(component_id='my-output', component_property='a_property'),
-[Input(component_id='my-input', component_property='another_property')]
-)
+              [Input(component_id='my-input', component_property='another_property')]
+              )
 def update_output_div(input_value):
     return 'Output: {}'.format(input_value)
 ```
@@ -222,9 +224,9 @@ To create a callback we need to:
 
 - Define the Input: identify the component id (e.g. id of an html element) and component property that the user will
   interact with
-  
+
 - Define the Outputs: identify the component id and property that will be updated after we make a change
-  
+
 - Write a Python function using the @callback decorator. The function will be run when the Input has been selected
 
 To update the statistics panel when the area dropdown selection is changed we need to:
@@ -235,16 +237,18 @@ To update the statistics panel when the area dropdown selection is changed we ne
   import `from dash.dependencies import Output, Input`. So, we can reference the country that is selected
   as `Input("area_select","value")`
 
-- **Outputs**: The last line of the first column in the app layout added a placeholder div: `html.Div(id="output-panel")`.
-  We want to output a Bootstrap card with the statistics in and place it in this div, that is the card becomes
-  the `children=` of the `html.Div(id="output-panel")`. So, we can reference the div as our output
-  as `Output("output-panel","children")`.
+- **Outputs**: The last line of the first column in the app layout added a placeholder
+  div: `html.Div(id="output-panel")`. We want to output a Bootstrap card with the statistics in and place it in this
+  div, that is the card becomes the `children=` of the `html.Div(id="output-panel")`. So, we can reference the div as
+  our output as `Output("output-panel","children")`.
 
 - **Callback function**: The function will take the area name selected in the dropdown and process the data for that
-  area. The stats are calculated in `recyclingdata.py` are the resulting data is used to generate a bootstrap styled card with the statistical summary data.
-  The HTML page is then updated by passing this 'card' to the div with the id of `"output-panel"`.
+  area. The stats are calculated in `recyclingdata.py` are the resulting data is used to generate a bootstrap styled
+  card with the statistical summary data. The HTML page is then updated by passing this 'card' to the div with the id
+  of `"output-panel"`.
 
-The code to do this is as follows. Copy and paste this into the end of `app.py` after the layout and then 'save' to update the app.
+The code to do this is as follows. Copy and paste this into the end of `app.py` after the layout and then 'save' to
+update the app.
 
 ```python
 from dash.dependencies import Output, Input
@@ -272,6 +276,7 @@ def render_output_panel(area_select):
     return panel
 
 ```
+
 The summary stats should change as the area is changed. Your app might now look something like this:
 ![Dash app with dropdown and chart](images/app.png)
 
@@ -279,12 +284,12 @@ The next step is to change the charts.
 
 ### Update the chart when an area is selected
 
-> Now it is over to you, see if you can a callback to app.py that takes the same input as the stats panel and outputs to the chart component with the id `recycle-chart`. 
-> The function, `update_recycling_chart(area_select)`  takes the area, processes the data for that area, and creates a new figure. 
+> Now it is over to you, see if you can a callback to app.py that takes the same input as the stats panel and outputs to the chart component with the id `recycle-chart`.
+> The function, `update_recycling_chart(area_select)`  takes the area, processes the data for that area, and creates a new figure.
 > To create the new figure you can use `fig1 = rc.create_chart(area_select)`
 
 **Challenges**
 > 1. Add a second chart that is accessed as a tab within the second column. Hint: lookup `dbc.Tabs` and `dbc.Tab`.
-     
+
 > 2. Add an update method so that this is also changed when the area is changed.
    
