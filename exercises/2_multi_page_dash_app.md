@@ -81,7 +81,7 @@ Anything that you add to app.layout will be visible on every page. The above pla
 
 Stop and restart the app. You should now have a multipage app.
 
-### Add a third app
+## TASK: Add a third app
 Create a new app called app3.
 
 You can create your own or copy one of the [sample apps in the Dash repository on GitHub](https://github.com/plotly/dash-sample-apps).
